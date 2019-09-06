@@ -16,8 +16,8 @@ node ('master'){
 					name: 'TARGET_ENVIRONMENT'
 				),
 				string(
-					defaultValue: 'project-name',
-					description: 'play-test',
+					defaultValue: 'play-test',
+					description: 'project-name',
 					name: 'PROJECT_NAME'
 				),
 
