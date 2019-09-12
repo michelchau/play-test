@@ -15,6 +15,11 @@ node ('master'){
 					description: 'Please enter the environment',
 					name: 'TARGET_ENVIRONMENT'
 				),
+				choice(
+					choices: Environment.getClusterlist()
+					description: 'Please choose which cluster'
+					name: 'TARGET_CLUSTER'
+				),
 				string(
 					defaultValue: 'play-test',
 					description: 'project-name',
@@ -29,7 +34,9 @@ node ('master'){
             ]
         )
     ])
-
+	withEnv([
+		'ANSIBLE_SCRIPT_PATH=tools/ansible'
+	])
     try {
 
         Pipeline pipeline = PipelineFactory.ForEnvironment(params.TARGET_ENVIRONMENT)
@@ -40,6 +47,10 @@ node ('master'){
 
 			stage('Build') {
 				pipeline.build()
+			}
+
+			stage('Deploy') {
+				pipeline.deploy()
 			}
 
     }catch(error){
