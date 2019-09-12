@@ -48,11 +48,7 @@ node ('master'){
 			stage('Build') {
 				pipeline.build()
 			}
-
-			stage('Deploy') {
-				pipeline.deploy()
-			}
-
+			
     }catch(error){
             echo (error)
 		}
