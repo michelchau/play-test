@@ -16,8 +16,8 @@ node ('master'){
 					name: 'TARGET_ENVIRONMENT'
 				),
 				choice(
-					choices: Environment.getClusterlist()
-					description: 'Please choose which cluster'
+					choices: Environment.getClusterlist(),
+					description: 'Please choose which cluster',
 					name: 'TARGET_CLUSTER'
 				),
 				string(
