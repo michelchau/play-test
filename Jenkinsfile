@@ -16,7 +16,7 @@ node ('master'){
 					name: 'TARGET_ENVIRONMENT'
 				),
 				choice(
-					choices: Environment.getClusterlist(),
+					choices: Environment.getClusterList(),
 					description: 'Please choose which cluster',
 					name: 'TARGET_CLUSTER'
 				),
@@ -48,7 +48,7 @@ node ('master'){
 			stage('Build') {
 				pipeline.build()
 			}
-			
+
     }catch(error){
             echo (error)
 		}
