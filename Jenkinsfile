@@ -17,7 +17,7 @@ node ('master'){
 				),
 				choice(
 					choices: Environment.getClusterList(),
-					description: 'Please choose which cluster',
+					description: 'Please choose your cluster',
 					name: 'TARGET_CLUSTER'
 				),
 				string(
@@ -34,9 +34,9 @@ node ('master'){
             ]
         )
     ])
-	withEnv([
-		'ANSIBLE_SCRIPT_PATH=tools/ansible'
-	])
+	// withEnv([
+	// 	'ANSIBLE_SCRIPT_PATH=tools/ansible'
+	// ])
     try {
 
         Pipeline pipeline = PipelineFactory.ForEnvironment(params.TARGET_ENVIRONMENT)
