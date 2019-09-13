@@ -43,6 +43,7 @@ node ('master'){
 
         	stage('Checkout') {
 				pipeline.checkout()
+				echo 'Release version : ' + Script.environment.env.releaseVersion
             }
 
 			stage('Build') {
