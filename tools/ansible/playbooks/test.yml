@@ -1,6 +1,7 @@
 --- 
 
   - name: Create file
+    connection: local
     gather_facts: false
     hosts: all
 
