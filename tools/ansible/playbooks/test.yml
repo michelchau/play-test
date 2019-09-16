@@ -1,0 +1,5 @@
+--- 
+  name: Create file
+  file:
+    path: /tmp/test.txt
+    mode : '0755'
