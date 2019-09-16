@@ -20,6 +20,18 @@ node ('master'){
 					description: 'Please choose your cluster',
 					name: 'TARGET_CLUSTER'
 				),
+
+
+				booleanParam(
+					defaultValue: false,
+					description: 'Do you want to build ?',
+					name: 'BUILD'
+				),
+				string(
+					defaultValue: '',
+					description: 'APP version',
+					name: 'APP_VERSION'
+				),
 				string(
 					defaultValue: 'play-test',
 					description: 'project-name',
@@ -49,6 +61,7 @@ node ('master'){
 			echo 'The release version is: ' + env.releaseVersion
 
 			stage('Build') {
+				if(params.BUILD)
 				pipeline.build()
 			}
 			stage ('Deploy') {
