@@ -47,9 +47,12 @@ node ('master'){
 
 			env.releaseVersion = pipeline.getReleaseVersion();
 			echo 'The release version is: ' + env.releaseVersion
-			
+
 			stage('Build') {
 				pipeline.build()
+			}
+			stage ('Deploy') {
+				pipeline.deploy()
 			}
 
     }catch(error){
