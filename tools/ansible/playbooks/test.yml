@@ -1,5 +1,11 @@
 --- 
-  name: Create file
-  file:
-    path: /tmp/test.txt
-    mode : '0755'
+
+  - name: Create file
+    gather_facts: false
+    hosts: all
+
+    tasks:
+      - name: test
+        file:
+          path: /tmp/test.txt
+          mode: '0755'
