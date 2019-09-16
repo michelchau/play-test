@@ -43,9 +43,11 @@ node ('master'){
 
         	stage('Checkout') {
 				pipeline.checkout()
-				echo 'Release version : ' + Script.environment.env.releaseVersion
             }
 
+			env.releaseVersion = pipeline.getReleaseVersion();
+			echo 'The release version is: ' + env.releaseVersion
+			
 			stage('Build') {
 				pipeline.build()
 			}
