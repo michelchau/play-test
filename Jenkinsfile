@@ -46,9 +46,12 @@ node ('master'){
             ]
         )
     ])
+
+
 	withEnv([
 		'ANSIBLE_SCRIPT_PATH=tools/ansible'
-	])
+	]){
+
     try {
 
         Pipeline pipeline = PipelineFactory.ForEnvironment(params.TARGET_ENVIRONMENT)
@@ -71,4 +74,5 @@ node ('master'){
     }catch(error){
             echo (error)
 		}
+	}
 }
