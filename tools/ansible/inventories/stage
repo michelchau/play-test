@@ -1,2 +1,2 @@
 [web]
-172.17.0.3
+172.17.0.3 ansible_user=root
