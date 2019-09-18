@@ -55,13 +55,9 @@ node ('master'){
     try {
 
         Pipeline pipeline = PipelineFactory.ForEnvironment(params.TARGET_ENVIRONMENT)
-		stages{
+
         	stage('Checkout') {
-				steps {
-					echo 'aaaazeerty'
-					echo 'aaaaa'	
-				}
-				// pipeline.checkout()
+				pipeline.checkout()
             }
 
 			env.releaseVersion = pipeline.getReleaseVersion();
@@ -74,7 +70,7 @@ node ('master'){
 			stage ('Deploy') {
 				pipeline.deploy()
 			}
-		}
+
     }catch(error){
             echo (error)
 		}
