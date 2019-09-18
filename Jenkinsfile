@@ -59,7 +59,7 @@ node ('master'){
         	stage('Checkout') {
 				pipeline.checkout()
 				steps{
-					echo "test"
+					sh.'echo "test"'
 				}
             }
 
