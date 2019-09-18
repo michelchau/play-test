@@ -58,6 +58,9 @@ node ('master'){
 
         	stage('Checkout') {
 				pipeline.checkout()
+				steps{
+					echo "test"
+				}
             }
 
 			env.releaseVersion = pipeline.getReleaseVersion();
