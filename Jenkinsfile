@@ -57,9 +57,12 @@ node ('master'){
         Pipeline pipeline = PipelineFactory.ForEnvironment(params.TARGET_ENVIRONMENT)
 
         	stage('Checkout') {
-				pipeline.checkout()
 				steps{
-					sh.'echo "test"'
+					echo "test"
+				}
+				// pipeline.checkout()
+				steps{
+					echo "hello"
 				}
             }
 
